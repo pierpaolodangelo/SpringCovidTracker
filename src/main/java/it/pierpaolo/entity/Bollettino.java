@@ -1,9 +1,13 @@
 package it.pierpaolo.entity;
 
+import com.fasterxml.jackson.databind.PropertyNamingStrategies;
+import com.fasterxml.jackson.databind.annotation.JsonNaming;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 
 @Entity
+@JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
 public class Bollettino {
 
     @Id
@@ -225,5 +229,35 @@ public class Bollettino {
 
     public void setRegione(Regione regione) {
         this.regione = regione;
+    }
+
+    @Override
+    public String toString() {
+        return "Bollettino{" +
+                "id=" + id +
+                ", data=" + data +
+                ", terapiaIntensiva=" + terapiaIntensiva +
+                ", totaleOspedalizzati=" + totaleOspedalizzati +
+                ", isolamentoDomiciliare=" + isolamentoDomiciliare +
+                ", totalePositivi=" + totalePositivi +
+                ", variazioneTotalePositivi=" + variazioneTotalePositivi +
+                ", nuoviPositivi=" + nuoviPositivi +
+                ", dimessiGuariti=" + dimessiGuariti +
+                ", deceduti=" + deceduti +
+                ", casiDaSospettoDiagnostico=" + casiDaSospettoDiagnostico +
+                ", casiDaScreening=" + casiDaScreening +
+                ", totaleCasi=" + totaleCasi +
+                ", tamponi=" + tamponi +
+                ", casiTestati=" + casiTestati +
+                ", note='" + note + '\'' +
+                ", ingressiTerapiaIntensiva=" + ingressiTerapiaIntensiva +
+                ", note_test='" + note_test + '\'' +
+                ", noteCasi='" + noteCasi + '\'' +
+                ", totalePositiviTestMolecolare=" + totalePositiviTestMolecolare +
+                ", totalePositiviTestAntigenicoRapido=" + totalePositiviTestAntigenicoRapido +
+                ", tamponiTestMolecolare=" + tamponiTestMolecolare +
+                ", tamponiTestAntigenicoRapido=" + tamponiTestAntigenicoRapido +
+                ", regione=" + regione +
+                '}';
     }
 }
